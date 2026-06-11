@@ -666,8 +666,11 @@ nav.navbar-white .fa-bars{
         margin-top: 10px;
     }
     .gallery{
-        grid-template-areas: 'first first' '. .''. .';
-    }
+    grid-template-areas:
+    "first first"
+    ". ."
+    ". .";
+}
     .small-details h2{
         font-size: 20px;
         margin-top: 24px;
@@ -682,7 +685,7 @@ nav.navbar-white .fa-bars{
     }
     .check-form div{
         padding: 20px 0;
-        width: 100;
+        width: 100%;
     }
     .check-form input{
         border-bottom: 1px solid #ccc;
@@ -702,4 +705,28 @@ nav.navbar-white .fa-bars{
     .contact-host{
         margin: 40px 0;
     }
+}
+img{
+    transition: 0.4s ease;
+}
+
+img:hover{
+    transform: scale(1.05);
+}
+
+.house{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.house:hover{
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.register-btn:hover,
+.cta-btn:hover,
+.contact-host:hover,
+.start-btn:hover{
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
