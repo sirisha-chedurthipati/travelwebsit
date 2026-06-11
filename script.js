@@ -5,26 +5,13 @@ function togglebtn() {
     navBar.classList.toggle("hidemenu");
 }
 
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-    });
-});
-
 // Search Form Validation
-const searchForms = document.querySelectorAll("form");
+const forms = document.querySelectorAll("form");
 
-searchForms.forEach(form => {
+forms.forEach(form => {
     form.addEventListener("submit", function (e) {
+
+        e.preventDefault();
 
         const inputs = form.querySelectorAll("input");
 
@@ -37,20 +24,22 @@ searchForms.forEach(form => {
         });
 
         if (!isValid) {
-            e.preventDefault();
-            alert("Please fill all fields before searching.");
+            alert("Please fill all fields.");
+        } else {
+            alert("Search Successful!");
         }
+
     });
 });
 
-// Image Hover Animation
+// Image Hover Effect
 const images = document.querySelectorAll("img");
 
 images.forEach(img => {
 
     img.addEventListener("mouseenter", () => {
         img.style.transform = "scale(1.05)";
-        img.style.transition = "0.4s";
+        img.style.transition = "0.4s ease";
     });
 
     img.addEventListener("mouseleave", () => {
@@ -59,24 +48,39 @@ images.forEach(img => {
 
 });
 
-// Property Card Click Effect
+// House Click Effect
 const houses = document.querySelectorAll(".house");
 
 houses.forEach(house => {
 
     house.addEventListener("click", () => {
 
-        house.style.background = "#f5f5f5";
+        house.style.backgroundColor = "#f5f5f5";
 
         setTimeout(() => {
-            house.style.background = "transparent";
+            house.style.backgroundColor = "transparent";
         }, 500);
 
     });
 
 });
 
-// CTA Button Alert
+// Register Button
+const registerBtns = document.querySelectorAll(".register-btn");
+
+registerBtns.forEach(btn => {
+
+    btn.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        alert("Registration Feature Coming Soon!");
+
+    });
+
+});
+
+// CTA Button
 const ctaBtn = document.querySelector(".cta-btn");
 
 if (ctaBtn) {
@@ -85,7 +89,7 @@ if (ctaBtn) {
 
         e.preventDefault();
 
-        alert("Thank you for your interest! More details coming soon.");
+        alert("Thank you for your interest!");
 
     });
 
@@ -100,26 +104,11 @@ if (contactBtn) {
 
         e.preventDefault();
 
-        alert("Host contacted successfully!");
+        alert("Host Contacted Successfully!");
 
     });
 
 }
-
-// Register Button
-const registerBtns = document.querySelectorAll(".register-btn");
-
-registerBtns.forEach(btn => {
-
-    btn.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        alert("Registration feature coming soon!");
-
-    });
-
-});
 
 // Back To Top Button
 const topBtn = document.createElement("button");
@@ -132,9 +121,11 @@ topBtn.style.right = "20px";
 topBtn.style.padding = "10px 15px";
 topBtn.style.border = "none";
 topBtn.style.borderRadius = "50%";
+topBtn.style.background = "#ff5361";
+topBtn.style.color = "#fff";
 topBtn.style.cursor = "pointer";
 topBtn.style.display = "none";
-topBtn.style.zIndex = "1000";
+topBtn.style.zIndex = "999";
 
 document.body.appendChild(topBtn);
 
@@ -157,14 +148,12 @@ topBtn.addEventListener("click", () => {
 
 });
 
-// Current Year Auto Update
+// Footer Year Auto Update
 const footerText = document.querySelector(".footer p");
 
 if (footerText) {
 
-    const year = new Date().getFullYear();
-
     footerText.innerHTML =
-        `Copyright © ${year}, Easy Tutorials.`;
+        `Copyright © ${new Date().getFullYear()}, Easy Tutorials.`;
 
 }
